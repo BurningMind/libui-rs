@@ -83,6 +83,8 @@ impl Window {
             ui_sys::uiWindowSetMargined(self.ui_window, margined as c_int)
         }
     }
+    
+    #[inline]
     pub fn set_borderless(&self, borderless: bool) {
         ffi_utils::ensure_initialized();
         unsafe {

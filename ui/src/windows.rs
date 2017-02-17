@@ -83,6 +83,12 @@ impl Window {
             ui_sys::uiWindowSetMargined(self.ui_window, margined as c_int)
         }
     }
+    pub fn set_borderless(&self, borderless: bool) {
+        ffi_utils::ensure_initialized();
+        unsafe {
+            ui_sys::uiWindowSetBorderless(self.ui_window, borderless as c_int)
+        }
+    }
 
     pub fn set_autosave(&self, name: &str) {
         ffi_utils::ensure_initialized();
@@ -124,4 +130,3 @@ impl Window {
         })
     }
 }
-

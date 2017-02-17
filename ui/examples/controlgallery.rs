@@ -24,6 +24,7 @@ fn run() {
 
     let mainwin = Window::new("ui Control Gallery", 640, 480, true);
     mainwin.set_margined(true);
+    mainwin.set_borderless(true);
     mainwin.on_closing(Box::new(|_| {
         ui::quit();
         false
@@ -146,4 +147,3 @@ fn save_clicked(_: &MenuItem, mainwin: &Window) {
 fn update(_: i64) {
     // TODO(pcwalton)
 }
-

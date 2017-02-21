@@ -38,6 +38,16 @@ impl Window {
     }
 
     #[inline]
+    pub fn set_bg_colour(&self, r: f32, g: f32, b: f32, alpha: f32) {
+        ffi_utils::ensure_initialized();
+        unsafe {
+            ui_sys::uiWindowSetBgColour(self.ui_window, r, g, b, alpha);
+        }
+
+    }
+    
+
+    #[inline]
     pub fn on_closing(&self, callback: Box<FnMut(&Window) -> bool>) {
         ffi_utils::ensure_initialized();
         unsafe {

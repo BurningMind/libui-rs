@@ -259,6 +259,14 @@ impl Button {
             Button::from_ui_control(ui_sys::uiNewButton(c_string.as_ptr()))
         }
     }
+
+    pub fn new_with_image(image_path: &str) -> Button {
+        ffi_utils::ensure_initialized();
+        unsafe {
+            let c_string = CString::new(image_path.as_bytes().to_vec()).unwrap();
+            Button::from_ui_control(ui_sys::uiNewButtonWithImage(c_string.as_ptr()))
+        }
+    }
 }
 
 define_control!(BoxControl, uiBox, ui_box);

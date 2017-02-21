@@ -25,6 +25,7 @@ fn run() {
     let mainwin = Window::new("ui Control Gallery", 640, 480, true);
     mainwin.set_margined(true);
     mainwin.set_borderless(true);
+    mainwin.set_bg_colour(0.2, 0.2, 0.2, 1.0);
     mainwin.on_closing(Box::new(|_| {
         ui::quit();
         false

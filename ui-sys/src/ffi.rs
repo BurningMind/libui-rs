@@ -74,6 +74,7 @@ pub enum uiWindow {}
 extern {
     pub fn uiWindowTitle(w: *mut uiWindow) -> *mut c_char;
     pub fn uiWindowSetTitle(w: *mut uiWindow, title: *const c_char);
+    pub fn uiWindowSetBgColour(w: *mut uiWindow, r: f32, g: f32, b: f32, alpha: f32);
     pub fn uiWindowOnClosing(w: *mut uiWindow,
                              f: extern "C" fn(w: *mut uiWindow, data: *mut c_void) -> c_int,
                              data: *mut c_void);
@@ -95,6 +96,7 @@ extern {
                              callback: extern "C" fn(b: *mut uiButton, data: *mut c_void),
                              data: *mut c_void);
     pub fn uiNewButton(text: *const c_char) -> *mut uiButton;
+    pub fn uiNewButtonWithImage(image_path: *const c_char) -> *mut uiButton;
 }
 
 pub enum uiBox {}
